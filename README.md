@@ -37,6 +37,8 @@ Link adaptable: https://centaurlib.adaptable.app/main/
     6. Membuat fungsi "show_main" dengan parameter "request", tujuannya untuk memproses request HTTP dan mereturn tampilannya. Kodenya adalah sebagai berikut:
     def show_main(request):
         context = {
+            'myname': 'Gina Afia',
+            'myclass': 'PBP B',
             'name': 'Six of Crows',
             'description': 'Young adult fantasy series'
             'amount': '5'
@@ -72,7 +74,7 @@ Link adaptable: https://centaurlib.adaptable.app/main/
     5. Jalankan perintah "python manage.py runserver" pada Command Prompt", lalu buka tautan http://localhost:8000/main/ untuk melihat tampilan halaman yang telah dibuat.
 
     Melakukan testing terhadap path "/main/" untuk mengetahui apakah path dapat diakses dan apakah dirender menggunakan template "main.html".
-    1. Mengisi berkas tests.py pada direktori "main" dengan kode berikut
+    1. Mengisi berkas tests.py pada direktori "main" dengan kode berikut:
     from django.test import TestCase, Client
 
     class mainTest(TestCase):
@@ -83,6 +85,10 @@ Link adaptable: https://centaurlib.adaptable.app/main/
         def test_main_using_main_template(self):
             response = Client().get('/main/')
             self.assertTemplateUsed(response, 'main.html')
+    2. Menambahkan testing lain selain yang ada di tutorial: yaitu testing yang memeriksa apakah stok buku masih tersedia seperti berikut:
+    def test_item_stock_is_exist(self): # Periksa apakah stok buku masih ada
+        response = Client().get('/main/')
+        self.assertNotEqual(response.context['amount'], 0)
 
     Perbaharui repositori GitHub
     1. Lakukan add, commit, dan push tiap kali melakukan perubahan atau modifikasi.
