@@ -7,7 +7,7 @@ def show_main(request):
         'myclass': 'PBP B',
         'name': 'Six of Crows',
         'description': 'Young adult fantasy series',
-        'amount': '5'
+        'amount': 5
     }
 
     return render(request, "main.html", context)
