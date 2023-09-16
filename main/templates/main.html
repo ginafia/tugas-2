@@ -1,21 +1,46 @@
-<p>{{ myname }}</p>
-<p>{{ myclass }}</p>
+{% extends 'base.html' %}
 
-<h1>Centaur Library</h1>
+{% block content %}
+    <p>{{ myname }}</p>
+    <p>{{ myclass }}</p>
 
-<img src="https://target.scene7.com/is/image/Target/GUEST_5ce8a240-76c7-43b9-8f34-3d5f556ea6e8?wid=488&hei=488&fmt=pjpeg"width="200" height="200">
-<h5>Judul Buku: </h5>
-<p>{{ name1 }}</p> 
-<h5>Deskripsi: </h5>
-<p>{{ description1 }}</p> 
-<h5>Jumlah Stok: </h5>
-<p>{{ amount1 }}</p>
+    <h1>Centaur Library</h1>
 
+    <img src="https://target.scene7.com/is/image/Target/GUEST_5ce8a240-76c7-43b9-8f34-3d5f556ea6e8?wid=488&hei=488&fmt=pjpeg"width="200" height="200">
+    <h5>Judul Buku: </h5>
+    <p>{{ title }}</p> 
+    <h5>Deskripsi: </h5>
+    <p>{{ description }}</p> 
+    <h5>Jumlah Stok: </h5>
+    <p>{{ amount }}</p>
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe-AtSmeqisu8n0oN6ImtuJXudd6RQb5F2GPLwggZ1G2R5BM0bQKgPIq2ULJeLLqJzdJk&usqp=CAU"width="150" height="200">
-<h5>Judul Buku: </h5>
-<p>{{ name2 }}</p> 
-<h5>Deskripsi: </h5>
-<p>{{ description2 }}</p> 
-<h5>Jumlah Stok: </h5>
-<p>{{ amount2 }}</p>
+    <table>
+        <tr>
+            <th>Title</th>
+            <!-- <th>Price</th> -->
+            <th>Description</th>
+            <th>Stock</th>
+            <th>Date Added</th>
+        </tr>
+
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+        {% for product in products %}
+            <tr>
+                <td>{{product.title}}</td>
+                <!-- <td>{{product.price}}</td> -->
+                <td>{{product.description}}</td>
+                <td>{{product.amount}}</td>
+                <td>{{product.date_added}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br />
+
+    <a href="{% url 'main:create_product' %}">
+        <button>
+            Add New Product
+        </button>
+    </a>
+{% endblock content %}
