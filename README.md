@@ -58,6 +58,9 @@ TUGAS 3
     4. XML dengan ID
        <img width="960" alt="Screenshot 2023-09-20 042614" src="https://github.com/ginafia/tugas-2/assets/124960537/b5978b65-d198-4829-90ad-ea6858be96a0">
 
+    5. HTML
+       <img width="960" alt="Screenshot 2023-09-20 045144" src="https://github.com/ginafia/tugas-2/assets/124960537/e9026b44-67c0-4dca-9c7b-cf175b290664">
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 TUGAS 2
