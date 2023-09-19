@@ -1,3 +1,57 @@
+TUGAS 3
+- Apa perbedaan antara form POST dan form GET dalam Django?
+    POST = digunakan untuk mengirim data berupa file, form data, dll ke server. Jika berhasil akan mengembalikan kode status HTTP 201.
+    GET = digunakan untuk membaca atau mendapatkan kembali data dari web server. Jika berhasil akan mengembalikan kode status 200 (OK).
+
+- Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+    XML = digunakan untuk pertukaran data yang lebih kompleks, karena format XML yang ketat dan lebih terstruktur.
+    JSON = digunakan untuk pertukaran data yang lebih ringan, karena format JSON lebih ringkas. Transmisi data oleh JSON pun lebih cepat.
+    HTML = digunakan untuk merepresentasikan tampilan, bukan untuk menyimpan atau mengirim data.
+
+- Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+    Karena formatnya yang ringkas lebih mudah dibaca oleh manusia dan mesin. JSON juga merupakan bagian dari JavaScript yang merupakan bahasa pemrograman yang umum digunakan pada saat membuat web modern, sehingga parsing dan modifikasi JSON dapat dilakukan dengan mudah.
+
+- Cara implementasi checklist:
+    Mengatur Routing dari main/ ke / 
+    1. Aktfikan Virtual Environment
+    2. Ubah path 'main/' menjadi '' pada 'urlspattern' di 'urls.py' yang ada di direktori utama
+    
+    Membuat Kerangka Views berupa Skeleton
+    fungsi: sebagai kerangka situs web yang menjadi base bagi beberapa halaman web (nantinya)
+    1. Pada root folder(direktori utama) buat berkas HTML bernama 'base.html'. Fungsinya adalah menjadi template dasar yang dapat digunakan sebagai kerangka umum untuk halaman web lainnya
+    2. Mencantumkan berkas 'base.html' sebagai berkas template dengan cara memasukan kode '[BASE_DIR / 'templates'],' pada setting.py di direktori proyek pada bagian 'TEMPLATES'
+    3. Pada subdirektori 'templates' pada direktori 'main', tambahkan block content dan endblock content. Isi dari block content sama seperti isi main.html, yang membedakan adalah terdapat extends ke base.html agar berkas tersebut merefer pada base template
+    
+    Membuat Form Input Data
+    1. Buat berkas baru pada direktori 'main' dengan nama 'forms.py'. Pada intinya berkas ini memiliki fungsi yang sama dengan models.py bagi form yang akan di buat. Bahkan fields pada berkas ini akan disimpan menjadi bentuk Product sama seperti fields pada models.py.
+    2. Pada berkas 'views.py' di folder 'main' tambahkan import:
+    from django.http import HttpResponseRedirect
+    from main.forms import ProductForm
+    from django.urls import reverse
+    3. Pada berkas tersebut buat fungsi baru bernama 'create_product' yang berfungsi menambah data produk ketika data disubmit
+    4. Pada fungsi 'show_main' tambahkan 'products = Product.objects.all(), lalu pada bagian bagian 'context' tambahkan 'products': products untuk nantinya menampilkan tabel data dari form pada halaman utama
+    5. Tambahkan url fungsi create_product pada berkas 'urls.py' di folder main
+    6. Membuat berkas html baru bernama 'create_product.html' yang juga mengextends 'base.html' sebagai template bagi halaman kedua yang menampilkan form input data
+    7. Sesuaikan fields yang dimiliki form pada 'main.html' dengan memasukan kerangka table di dalam block content
+    
+    Mengembalikan Data dalam Bentuk XML dan JSON
+    1. Tambahkan import HttpResponse dan serializers pada berkas 'views.py' pada folder main.
+    2. Buat fungsi show_xml yang menerima parameter request, berisi pengambilan seluruh object pada Product, dan mereturn objek model dalam bentuk XML
+    3. Tambahkan url fungsi show_xml pada berkas 'urls.py' di folder main
+    4. Lakukan hal yang sama untuk pengembalian daya dalam bentuk JSON
+
+    Mengembalikan Data Berdasarkan ID dalam Bentuk XML dan JSON
+    1. Ulangi langkah-langkah sebelumnya, yang membedakan adalah pada pengambilan object pada Product gunakan 'Product.objects.filter(pk=id)'
+    2. Saat melakukan runserver, tambahkan 'xml/[id]/' atau 'json/[id]/' di belakang url
+
+- Screenshot Postman
+    1. JSON
+    2. JSON dengan ID
+    3. XML
+    4. XML dengan ID
+
+------------------------------------------------------------------------------------------------------------------------------------------
+TUGAS 2
 Link adaptable: https://centaurlib.adaptable.app/main/ 
 
 - Cara mengimplementasi checklist:

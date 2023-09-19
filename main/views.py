@@ -14,7 +14,7 @@ def show_main(request):
         'myname': 'Gina Afia',
         'myclass': 'PBP B',
         'title': 'Six of Crows',
-        'description': 'Genre: Young adult, Fantasy\nNumber of Pages: 465\nAuthor: Leigh Bardugo',
+        'description': 'Genre: Young Adult Fantasy',
         'amount': 5,
         'products': products
 
