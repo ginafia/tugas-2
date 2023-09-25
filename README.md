@@ -46,9 +46,21 @@ TUGAS 3
 
 - Screenshot Postman
     1. JSON
+       <img width="960" alt="Screenshot 2023-09-20 042638" src="https://github.com/ginafia/tugas-2/assets/124960537/66f493a9-fb17-4426-a8fb-0d0d1a67e34b">
+
     2. JSON dengan ID
+       <img width="960" alt="Screenshot 2023-09-20 042650" src="https://github.com/ginafia/tugas-2/assets/124960537/61ffb74b-9ab9-4ee8-bc34-55db158c2d67">
+
     3. XML
+       <img width="960" alt="Screenshot 2023-09-20 042341" src="https://github.com/ginafia/tugas-2/assets/124960537/c0075789-7936-41e2-a64c-eb1e0b0608d2">
+
+
     4. XML dengan ID
+       <img width="960" alt="Screenshot 2023-09-20 042614" src="https://github.com/ginafia/tugas-2/assets/124960537/b5978b65-d198-4829-90ad-ea6858be96a0">
+
+    5. HTML
+       <img width="960" alt="Screenshot 2023-09-20 045144" src="https://github.com/ginafia/tugas-2/assets/124960537/e9026b44-67c0-4dca-9c7b-cf175b290664">
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 TUGAS 2
