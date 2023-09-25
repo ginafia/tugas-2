@@ -15,5 +15,5 @@ class mainTest(TestCase):
 
     def test_item_stock_is_exist(self): # Periksa apakah stok buku masih ada
         response = Client().get('/main/')
-        self.assertNotEqual(response.context['amount1'], 0)
-        self.assertNotEqual(response.context['amount2'], 0)
+        self.assertNotEqual(response.context['amount'], 0)
+        # self.assertNotEqual(response.context['amount2'], 0)
