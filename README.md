@@ -1,3 +1,53 @@
+Tugas 4
+- Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+    Django USerCreationForm adalah impor formulir bawaan yang memudahkan pendaftaran pengguna di situs web.
+
+    Kelebihan = praktis dan mudah digunakan, efisien, terdapat fitur keamanan, kemudahan kustomisasi yang mana pengumpulan informasi dapat disesuaikan dengan kebutuhan aplikasi, fitur validasi bawaan yang dapat memastikan user menginput data yang valid.
+
+    Kekurangan = kurang fleksibel, rumit untuk diimplementasikan.
+
+- Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+    Autentikasi = proses verifikasi pengguna (sebagai klien)
+    Otorisasi = proses verifikasi bahwa kita punya akses ke sesuatu (sebagai builder/developer)
+
+    Keduanya penting untuk menjaga keamanan sistem. Keduanya memastikan bahwa sistem diakses oleh pengguna yang sah
+
+- Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+    Cookies = sejumlah kecil informasi yang dikirim oleh web server ke browser dan nantinya dikirim kembali oleh browser ke halaman request.
+
+    Cara Django menggunakan cookies:
+    - Saat pengguna mengakses situs web, Django akan membuat cookie berisi ID yang terhubung dengan data pengguna yang disimpan server.
+    - Tiap kali pengguna mengirim request seperti membuka halaman web, cookie dan request akan dikirim ke server.
+    - Django akan melacak dan memindai informasi pengguna yang sesuai dengan hasil identifikasi ID pada cookie.
+
+- Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+    Penggunaan cookie secara default yaitu Session Cookie, atau disebut juga temporary cookie. Penggunaan cookie ini lebih aman daripada persistent cookie karena hanya dapat diakses oleh browser, sedangkan persistent cookie lebih tidak aman karena pengguna atau program dapat membuka file cookie.
+
+- Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+    Implementasi fungsi registrasi, login, dan logout
+    1. Melengkapi kode pada fungsi 'register' yang ada pada berkas 'views.py' dengan penggunaan UserCreationForm, juga membuat fungsi baru login dan logout yang tersambung dengan berkas template html.
+    2. Membuat berkas html register, login, dan logout pada folder template di direktori main.
+    3. Mengimport dan menambahkan path url ketiga fungsi pada berkas urls.py
+    
+    Buat dua akun dengan masing-masing tiga dummy data
+    1. Melakukan 2x registrasi akun baru.
+    2. Login menggunakan kedua akun yang telah dibuat.
+    3. Menambahkan 3 item pada tiap akun dengan menekan 'Add New Product', mengisi detail, dan menekan submit.
+
+    Menghubungkan model Item dengan User
+    1. Import User pada berkas 'models.py'
+    2. Menambahkan variabel user pada class Product
+    3. Memberi petunjuk bahwa suatu objek merupakan milik pengguna yang sedang login dengan langkah pertama menambahkan variabel 'product' pada fungsi create_product di berkas 'views.py'
+
+    Menampilkan detail username dan menerapkan cookies seperti last login
+    1. Mengubah value milik key 'name' pada fungsi show_main di berkas 'views.py' menjadi ''name': request.user.username'. Fungsinya agar nama yang muncul pada laman web utama menampilkan nama username akun yang sedang login.
+    2. Memodifikasi fungsi login_user pada blok 'if user is not None' dengan menambahkan kode 'response.set_cookie('last_login', str(datetime.datetime.now()))' yang berfungsi membuat cookie last login dan menambahkannya ke dalam response yang nantinya akan direturn.
+    3. Menambahkan key dan value ''last_login': request.COOKIES['last_login']' pada dictionary context di fungsi show_main.
+    4. Modifikasi kode pada fungsi logout_user salah satunya dengan menambahkan 'response.delete_cookie('last_login')' yang berfungsi menghapus cookie last_login setelah pengguna logout.
+    5. Menambahkan '<h5>Sesi terakhir login: {{ last_login }}</h5>' pada berkas 'main.html'.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
 TUGAS 3
 - Apa perbedaan antara form POST dan form GET dalam Django?
     POST = digunakan untuk mengirim data berupa file, form data, dll ke server. Jika berhasil akan mengembalikan kode status HTTP 201.
