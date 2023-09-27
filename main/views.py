@@ -43,6 +43,35 @@ def create_product(request):
     context = {'form': form}
     return render(request, "create_product.html", context)
 
+def increase(request, id):
+    product = Product.objects.get(pk=id)
+    product.amount += 1
+    product.save()
+    response = HttpResponseRedirect(reverse("main:show_main")) 
+    return response
+
+def decrease(request, id):
+    product = Product.objects.get(pk=id)
+    response = HttpResponseRedirect(reverse("main:show_main"))
+    if (product.amount == 0):
+        return response
+    product.amount -= 1
+    product.save() 
+    return response
+
+def delete(request, id):
+    product = Product.objects.get(pk=id)
+    product.delete()
+    response = HttpResponseRedirect(reverse("main:show_main"))
+    return response
+
+def increase(request, id):
+    product = Product.objects.get(pk=id)
+    product.amount += 1
+    product.save()
+    response = HttpResponseRedirect(reverse("main:show_main")) 
+    return response
+
 def show_xml(request):
     data = Product.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
