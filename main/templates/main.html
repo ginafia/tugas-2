@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGUtUq8CTycbzDRU9n4ukDc67KEhVpv9wr4LXxDJb70zMtvYqpxAIoRJTDfy_blzcXyQU&usqp=CAU", height="50", width="50">
+            Centaur Library
+        </a>
+        <a href="{% url 'main:logout' %}">
+            <button style="background-color: #A07300; color: #fff; padding: 5px 15px; border: none; border-radius: 5px;">
+                Logout
+            </button>
+        </a>
+        </div>
+    </nav>
     <p>{{ myname }}</p>
     <p>{{ myclass }}</p>
-
     <h1>Centaur Library</h1>
 
     <img src="https://target.scene7.com/is/image/Target/GUEST_5ce8a240-76c7-43b9-8f34-3d5f556ea6e8?wid=488&hei=488&fmt=pjpeg"width="200" height="200">
@@ -41,8 +53,13 @@
                 </td>
                 <td>{{product.date_added}}</td>
                 <td>
+                    <a href="{% url 'main:edit_product' product.pk %}">
+                        <button>
+                            Edit
+                        </button>
+                    </a>
                     <a href="{% url 'main:delete' product.id %}">
-                        <button>delete</button>
+                        <button>Delete</button>
                     </a>
                 </td>
             </tr>
