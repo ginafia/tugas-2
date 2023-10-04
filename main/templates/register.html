@@ -1,17 +1,131 @@
 {% extends 'base.html' %}
 
 {% block meta %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <title>Register</title>
+
+    <style>
+    body{
+        background-color: #5E4A41;
+    }
+
+    .tablestyle {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 800px;
+        min-height: 200px;
+        background: #5E4A41;
+        border-radius: 30px;
+        padding: 40px;
+        box-sizing: border-box;
+        font-family: 'Poppins',sans-serif;
+        color: #271E1A;
+        text-align: left;
+        box-shadow: inset 2px 2px 5px #906F60,
+                    inset -5px -5px 10px #3A2D27;
+  } 
+  .tablestyle input[type="text"],
+.tablestyle input[type="number"],
+.tablestyle input[type="password"],
+.tablestyle textarea {
+    height: 100%;
+    width: 100%;
+    padding-left: 45px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    background: #5E4A41;
+    color: #3A2D27;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 5px #906F60,
+                inset -5px -5px 10px #3A2D27;
+}
+
+.tablestyle input[type="submit"] {
+    margin: 15px 0;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    font-weight: 600;
+    background: #5E4A41;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #271E1A;
+    box-shadow: 2px 2px 5px #906F60,
+                -5px -5px 10px #3A2D27;
+}
+
+.tablestyle input[type="submit"]:hover {
+    color: #271E1A;
+    box-shadow: inset 2px 2px 5px #906F60,
+                inset -5px -5px 10px #3A2D27;
+}
+
+
+  .header {
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    color: #271E1A;
+    
+  }
+
+  /* .background .shape{
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        border-radius: 50%;
+    }
+    .shape:first-child{
+        background: linear-gradient(
+            #46214a,
+            #a97fad
+        );
+        left: -80px;
+        top: -80px;
+    }
+    .shape:last-child{
+        background: linear-gradient(
+            to right,
+            #3a5059,
+            #b2cbd6
+        );
+        right: -30px;
+        bottom: -80px;
+    } */
+
+    .header {
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    color: #271E1A;
+    
+  }
+
+    </style>
 {% endblock meta %}
 
 {% block content %}  
 
-<div class = "login">
+<div class = "registerBox">
     
-    <h1>Register</h1>  
+    <div class="header">
+        <h1>Register</h1>
+    </div>
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
 
         <form method="POST" >  
-            {% csrf_token %}  
+            {% csrf_token %} 
+            <div class = "tablestyle">
             <table>  
                 {{ form.as_table }}  
                 <tr>  
@@ -19,6 +133,7 @@
                     <td><input type="submit" name="submit" value="Daftar"/></td>  
                 </tr>  
             </table>  
+            </div> 
         </form>
 
     {% if messages %}  
@@ -32,3 +147,189 @@
 </div>  
 
 {% endblock content %}
+
+
+
+
+<!-- <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        *{
+        margin: 0;
+        padding: 0;
+        /* user-select: none; */
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        }
+        html,body{
+        height: 100%;
+        }
+
+        body{
+        display: grid;
+        place-items: center;
+        background-image: url("https://img.freepik.com/free-photo/high-anglebeautiful-love-letters_23-2150716544.jpg?w=826&t=st=1696329293~exp=1696329893~hmac=a091cd22f63caba78c65d395a8ca7e82d91615ff0d2368c9c4afc8087c70a07b");
+        background-size: cover; 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        /* background: #dde1e7; */
+        text-align: center;
+        }
+        .login{
+        width: 500px;
+        padding: 40px 30px;
+        background: #5E4A41;
+        border-radius: 10px;
+        box-shadow: -3px -3px 7px #906F60,
+                    2px 2px 5px #3A2D27;
+        }
+
+        .login .text{
+        font-size: 33px;
+        font-weight: 600;
+        margin-bottom: 35px;
+        color: #271E1A;
+        }
+        .field{
+        height: 50px;
+        width: 100%;
+        display: flex;
+        position: relative;
+        }
+        .tooltip {
+            position: absolute;
+            top: calc(100% + 10px); /* Position below the field */
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            display: none; /* Initially hide the tooltip */
+            z-index: 1; /* Ensure the tooltip is above other elements */
+        }
+        .field:hover .tooltip {
+            display: block; /* Show the tooltip on hover */
+        }
+
+        .field:nth-child(2){
+        margin-top: 20px;
+        }
+        .field input{
+        height: 100%;
+        width: 100%;
+        padding-left: 45px;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        background: #5E4A41;
+        color: #3A2D27;
+        border-radius: 25px;
+        box-shadow: inset 2px 2px 5px #906F60,
+                    inset -5px -5px 10px #3A2D27;
+        }
+        .field input:focus{
+        box-shadow: inset 1px 1px 2px #906F60,
+                    inset -1px -1px 2px #3A2D27;
+        }
+        .field label{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 45px;
+        pointer-events: none;
+        color: #271E1A;
+        }
+        .field input:valid ~ label{
+        opacity: 0;
+        }
+
+        button{
+        margin: 15px 0;
+        width: 100%;
+        height: 50px;
+        font-size: 18px;
+        line-height: 50px;
+        font-weight: 600;
+        background: #5E4A41;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #271E1A;
+        box-shadow: 2px 2px 5px #906F60,
+                    -5px -5px 10px #3A2D27;
+        }
+        button:focus{
+        color: #271E1A;
+        box-shadow: inset 2px 2px 5px #906F60,
+                    inset -5px -5px 10px #3A2D27;
+        }
+        .sign-up{
+        margin: 10px 0;
+        color: #271E1A;
+        font-size: 16px;
+        }
+        .sign-up a{
+        color: #3498db;
+        text-decoration: none;
+        }
+        .sign-up a:hover{
+        text-decoration: underline;
+        }
+        input::placeholder{
+        color : #271E1A"
+        }
+        p, li{
+        font-size: 18px;
+        color:#271E1A"
+        }
+        h3{
+        color:#271E1A"
+        }
+    </style>
+</head>
+<body>
+    <div class = "login">
+        <div class="text">
+            Register
+        </div>
+        <form method="POST" >  
+            {% csrf_token %}  
+            <div class="field">
+                <input type="text" name="username" placeholder="Username">
+                <div class="tooltip">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</div>
+                <span class="fas fa-user"></span>
+                <label>Username</label>
+            </div>
+            <p>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+            <div class="field">
+                <input type="password" name="password" placeholder="Password">
+                <span class="fas fa-lock"></span>
+                <label>Password</label>
+            </div>
+            <ul>
+                <li>Your password can’t be too similar to your other personal information.</li>
+                <li>Your password must contain at least 8 characters.</li>
+                <li>Your password can’t be a commonly used password.</li>
+                <li>Your password can’t be entirely numeric.</li>
+            </ul>
+            <div class="field">
+                <input type="password" name="password" placeholder="Password Confirmation">
+                <div class="tooltip">Enter the same password as before, for verification.</div>
+                <span class="fas fa-lock"></span>
+                <label>Password</label>
+            </div>
+            <p>Enter the same password as before, for verification.</p>
+            <button type="submit" name="submit">Register</button>
+        </form>
+        {% if messages %}  
+            <ul>   
+                {% for message in messages %}  
+                    <li>{{ message }}</li>  
+                    {% endfor %}  
+            </ul>   
+        {% endif %}
+    </div>  
+</body> 
+ -->

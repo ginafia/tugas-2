@@ -1,6 +1,83 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% block meta %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <title>Edit Product</title>
+    <style>
+        body{
+            background-color: #5E4A41;
+        }
+        .tablestyle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: 150px;
+            transform: translate(-50%,-50%);
+            width: 900px;
+            min-height: 100px;
+            background: #5E4A41;
+            border-radius: 30px;
+            padding: 40px;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+            color: #3A2D27;
+            text-align: left;
+            box-shadow: -3px -3px 7px #906F60,
+                        2px 2px 5px #3A2D27;
+    } 
+
+    .tablestyle input[type="text"],
+    .tablestyle input[type="number"],
+    .tablestyle textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #5E4A41;
+    border-radius: 10px;
+    margin-bottom: 10px;
+        color: #3A2D27;
+        box-shadow: inset 2px 2px 5px #906F60,
+                    inset -5px -5px 10px #3A2D27;
+    }
+
+    .tablestyle input[type="submit"] {
+        margin: 15px 0;
+        width: 100%;
+        height: 50px;
+        font-size: 18px;
+        line-height: 50px;
+        font-weight: 600;
+        background: #5E4A41;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #271E1A;
+        box-shadow: 2px 2px 5px #906F60,
+                    -5px -5px 10px #3A2D27;
+    }
+
+    .tablestyle input[type="submit"]:hover {
+        color: #271E1A;
+        box-shadow: inset 2px 2px 5px #906F60,
+                    inset -5px -5px 10px #3A2D27;
+    }
+
+    .header {
+        font-family: 'Poppins',sans-serif;
+        text-align: center;
+        margin-top: 20px;
+        color: #070707;
+        margin-bottom: 50px;
+        
+    }
+
+
+    </style>
+
+
+{% endblock meta %}
+
 
 {% block content %}
 
@@ -8,6 +85,7 @@
 
 <form method="POST">
     {% csrf_token %}
+    <div class="tablestyle">
     <table>
         {{ form.as_table }}
         <tr>
@@ -17,6 +95,7 @@
             </td>
         </tr>
     </table>
+</div>
 </form>
 
 {% endblock %}

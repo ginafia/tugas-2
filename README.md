@@ -1,3 +1,38 @@
+Tugas 5
+- Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+    Terdapat 3 jenis selector, yaitu:
+    1. Element Selector: digunakan untuk mengubah properti untuk semua elemen pada tag HTML yang sama.
+    2. ID Selector: digunakan untuk mengubah properti yang unik.
+    3. Class Selector: digunakan untuk mengubah properti sesuai pengelompokan elemen dengan karakteristik yang sama.
+
+- Jelaskan HTML5 Tag yang kamu ketahui.
+    1. <nav>: berfungsi mengelompokkan elemen yang berisi tautan navigasi.
+    2. <input type="text">: berfungsi menyimpan input berupa teks.
+    3. <input type="password">: berfungsi menyimpan input berupa pasword.
+    4. <button>: berfungsi membuat tombol.
+    5. <h1>: berfungsi membuat teks dengan ukuran besar. Biasanya digunakan untuk judul.
+    6. <p>: berfungsi membuat teks dengan ukuran yang lebih kecil.
+    7. <a href="<link>">: berfungsi mengarahkan elemen di dalam tag pada link.
+    
+    Dan lain-lain.
+
+- Jelaskan perbedaan antara margin dan padding.
+    Margin: berfungsi untuk mengatur jarak suatu elemen dengan elemen di sekitarnya.
+    Padding: berfungsi untuk mengatur jarak suatu konten elemen dengan tepi elemennya sendiri.
+
+- Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+    Bootstrap: sebaiknya digunakan apabila membangun proyek kecil dan atau membutuhkan implementasi antarmuka yang cepat, juga sebaiknya digunakan apabila pengguna tidak memiliki waktu dan cukup keahlian.
+
+    Tailwind: sebaiknya digunakan apabila pengguna ingin memiliki kendali besar atas tampilan antarmuka dan ingin mengoptimalkan ukuran file.
+
+- Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+    1. Kustomisasi desain pada template HTML dilakukan dengan menyimpan kerangka template HTML di dalam tag <body>, pengaturan susunan elemen interface disimpan dalam tag <head>.
+    2. Kustomisasi halaman login, register, dan tambah inventori, saya memilih ide dari tautan https://codepen.io/swapnet/pen/QWwPVwE 
+    3. Untuk kostumisasi halaman daftar inventori menggunakan Card, saya memilih ide dari tautan https://freefrontend.com/css-cards/page/3/
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
 Tugas 4
 - Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
     Django USerCreationForm adalah impor formulir bawaan yang memudahkan pendaftaran pengguna di situs web.

@@ -10,3 +10,4 @@ class Product(models.Model):
     amount = models.IntegerField()
     date_added = models.DateField(auto_now=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.CharField(max_length=255, default='')
