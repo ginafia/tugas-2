@@ -188,15 +188,132 @@
                 </div>
             </tr>
         </table>
-        <ul class="cards">
-            {% for product in products %}
+        <ul class="cards" id="product_table"></ul>
+        <a href="{% url 'main:create_product' %}">
+            <button id="newproduct">Add New Product</button>
+        </a>
+        
+        <p class="card__description">Sesi terakhir login: {{ last_login }}</p>
+    </body>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+
+    <script>
+        function addProduct() {
+        fetch("{% url 'main:add_product_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshProducts)
+
+        document.getElementById("form").reset()
+        return false
+        }
+
+        document.getElementById("button_add").onclick = addProduct
+
+        async function getProducts() {
+            return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+        }
+
+        async function refreshProducts() {
+        document.getElementById("product_table").innerHTML = ""
+        const products = await getProducts()
+        let htmlString = ``
+        products.forEach((item) => {
+            htmlString += `
+            <li class="{% if forloop.last %}last_item{% endif %}">
+                <a href="" class="card">
+                    <img src="${item.fields.image}" class="card__image"/>
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title">${item.fields.title}</h3>            
+                                <span class="card__status">Date Added: ${item.fields.date_added}</span>
+                            </div>
+                        </div>
+                        <table>
+                            <tr><p class="card__description">${item.fields.description}</p></td>
+                            <tr>
+                                <h3 class="card__title">Stok:</h3>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="decrease/${item.pk}">
+                                        <button>-</button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <h3 class="stok">${item.fields.amount}</h3>
+                                </td>
+                                <td>
+                                    <a href="increase/${item.pk}">
+                                        <button>+</button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="edit-product/${item.pk}">
+                                    <button>Edit</button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="delete/${item.pk}">
+                                        <button>Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </a>      
+            </li>
+            ` 
+        })
+        
+        document.getElementById("product_table").innerHTML = htmlString
+    }
+
+    refreshProducts()
+    </script>
+{% endblock content %}
+
+<!-- {% for product in products %}
             <li class="{% if forloop.last %}last_item{% endif %}">
                 <a href="{{ product.url }}" class="card">
                     <img src="{{ product.image }}" class="card__image"/>
                     <div class="card__overlay">
                         <div class="card__header">
-                            <!-- <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                      -->
-                            <!-- <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" /> -->
                             <div class="card__header-text">
                                 <h3 class="card__title">{{ product.title }}</h3>            
                                 <span class="card__status">Date Added: {{ product.date_added }}</span>
@@ -237,11 +354,10 @@
                 </a>      
             </li>
             {% endfor %}
-        </ul>
-        <a href="{% url 'main:create_product' %}">
-            <button id="newproduct">Add New Product</button>
-        </a>
-        
-        <p class="card__description">Sesi terakhir login: {{ last_login }}</p>
-    </body>
-{% endblock content %}
+
+            \n<tr>
+                <td>${item.fields.name}</td>
+                <td>${item.fields.price}</td>
+                <td>${item.fields.description}</td>
+                <td>${item.fields.date_added}</td>
+            </tr> -->
