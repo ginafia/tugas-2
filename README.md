@@ -1,3 +1,39 @@
+Tugas 6
+- Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+    1. Synchronous programming: setiap program dieksekusi secara berurutan. Program akan menunggu suatu tugas sampai selesai sebelum melanjutkan ke tugas berikutnya.
+
+    2. Asynchronous programming: setiap program dieksekusi secara independen. Program dapat mengeksekusi tiap tugas tanpa harus menunggu tugas sebelumnya selesai.
+
+
+- Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+    Paradigma event-driven programming adalah proses di mana program merespon aksi pengguna secara asynchronous. 
+    Contoh penerapan pada tugas ini adalah tombol add product AJAX. Tombol akan bereaksi setelah pengguna menekannya, reaksi tombol ketika ditekan merupakan bentuk respon program terhadap aksi pengguna. 
+
+- Jelaskan penerapan asynchronous programming pada AJAX.
+    Asynchronous programming pada AJAX memungkinkan program JavaScript mengeksekusi kode selanjutnya tanpa harus menunggu respon dari server
+
+- Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+    Fetch API lebih baik digunakan apabila ingin mengembangkan aplikasi modern dengan kebutuhan AJAX yang lebih kompleks karena dalam penggunaannya lebih ringan dan fleksibel.
+
+    jQuery lebih baik digunakan apabila ingin membangun fungsi-fungsi dasar AJAX dengan cepat tanpa banyak penyesuaian 
+
+
+- Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+    AJAX GET
+    1. Buat fungsi pada view.py yang menampilkan produk pada HTML dengan menggunakan fetch dan menambahkan produk baru ke basis data dengan AJAX
+    2. Menambahkan path pada urls.py
+    3. Menambahkan id dan script pada main.html
+    4. membuat modal form pada main.html
+
+    AJAX POST
+    1. Buat fungsi baru di dalam script di main.html
+    2. Menambahkan fungsi onclick untuk menambahkan item collections
+
+    Perintah collectstatic
+    dilakukan menyesuaikan tutorial 2 pada bagian Menambahkan Konfigurasi Deployment ke PaaS PBP Fasilkom UI
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
 Tugas 5
 - Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
     Terdapat 3 jenis selector, yaitu:
