@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponseNotFound, HttpResponseRedirect, JsonResponse
 from main.forms import ProductForm
@@ -164,8 +165,8 @@ def create_product_flutter(request):
 
         new_product = Product.objects.create(
             user = request.user,
-            name = data["name"],
-            price = int(data["price"]),
+            title = data["title"],
+            amount = int(data["amount"]),
             description = data["description"]
         )
 
